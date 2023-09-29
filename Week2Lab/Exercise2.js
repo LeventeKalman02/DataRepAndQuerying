@@ -8,4 +8,9 @@ const Bye = ()=>{
     console.log("Bye");
 }
 
-Bye();
+const Value = (myValue)=>{
+    myValue = 5;
+    console.log(myValue);
+};
+
+Value();
