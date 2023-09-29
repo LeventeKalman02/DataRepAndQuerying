@@ -1,12 +1,7 @@
-function hello(){
-    console.log("Hello World");
-}
-hello();
-
 //example arrow function
 const Bye = ()=>{
     console.log("Bye");
-}
+};
 
 //part 2 a & b
 const Value = (myValue, name)=>{
@@ -20,7 +15,7 @@ Value();
 const sum = (num1, num2, num3)=>{
     num1 = 2, num2 = 2, num3 = 7;
     console.log(num1 + num2 + num3);
-}
+};
 sum();
 
 //part D
@@ -37,5 +32,23 @@ let age = ages.map((element)=>{
 );
 console.log(age);
 
+//part 3 a & b
 
+let myArray = [];
+
+let addTask = (task)=>{
+    myArray.push(task);
+    console.log("Added "+task+" To the array!");
+    return console.log("Length of Array: "+myArray.length);
+};
+
+addTask("BlueBerry");
+
+let listAllTasks = ()=>{
+    myArray.forEach((task) => {
+        return console.log(task)
+    });
+};
+
+    addTask("Strawberry");
 
