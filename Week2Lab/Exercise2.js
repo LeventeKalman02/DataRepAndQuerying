@@ -21,6 +21,7 @@ sum();
 //part D
 const ages = [25, 31, 42, 77];
 
+//iterates over each elenent in array and if its is under 70 int * 2
 let age = ages.map((element)=>{
         if(element < 70 ){
             return element * 2;
@@ -36,19 +37,36 @@ console.log(age);
 
 let myArray = [];
 
+//add a task to the array
 let addTask = (task)=>{
     myArray.push(task);
-    console.log("Added "+task+" To the array!");
-    return console.log("Length of Array: "+myArray.length);
+    console.log("Added "+task+" To the array!");//print the task added to the array
+    return console.log("Length of Array: "+myArray.length);//print the length of the array
 };
+addTask("Blueberry");
 
-addTask("BlueBerry");
-
+//list all of the tasks currently in the array
 let listAllTasks = ()=>{
-    myArray.forEach((task) => {
-        return console.log(task)
+    myArray.forEach((element) => {
+        console.log(element);
     });
 };
+addTask("Strawberry");
+listAllTasks();
 
-    addTask("Strawberry");
-
+//delete a task from the array
+let deleteTask = (task)=>{
+    let index = myArray.indexOf(task);//gets the index
+    if (index > -1 ){//checks if the task is in the array
+        myArray.splice(index, 1);
+    console.log("Task: "+task + " removed from the array!");
+    }
+    else{
+        console.log("Task: "+task+ "Not in array!");
+    }
+    
+}
+addTask("Banana");
+listAllTasks();
+deleteTask("Strawberry");
+listAllTasks();
