@@ -46,9 +46,9 @@ let addTask = (task)=>{
 addTask("Blueberry");
 
 //list all of the tasks currently in the array
-let listAllTasks = ()=>{
+let listAllTasks = (task)=>{
     myArray.forEach((element) => {
-        console.log(element);
+        console.log(": "+element);
     });
 };
 addTask("Strawberry");
