@@ -1,4 +1,4 @@
-import Books from "./Books";
+import Books from './books';
 
 function Read(){
 
@@ -39,7 +39,6 @@ function Read(){
 
     return(
         <div>
-            <h3>Hello from Read Component!</h3>
             <Books myBooks = {data}></Books>
         </div>
     );

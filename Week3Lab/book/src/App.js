@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Content from './Components/Content';
+import Content from './Components/content';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Create from './Components/Create';
-import Read from './Components/Read';
-import Footer from './Components/Footer';
+import Create from './Components/create';
+import Read from './Components/read';
+import Footer from './Components/footer';
 
 function App() {
   return (
