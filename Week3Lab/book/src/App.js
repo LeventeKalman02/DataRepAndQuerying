@@ -3,10 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Header from './Components/Header';
 import Content from './Components/Content';
-import Footer from './Components/Footer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Create from './Components/Create';
+import Read from './Components/Read';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -15,19 +16,21 @@ function App() {
 
         <Navbar bg="primary" data-bs-theme="dark">
           <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Navbar.Brand href="home">Navbar</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="home">Home</Nav.Link>
-              <Nav.Link href="features">Features</Nav.Link>
-              <Nav.Link href="pricing">Pricing</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/read">Read</Nav.Link>
+              <Nav.Link href="/create">Create</Nav.Link>
+              <Nav.Link href="/footer">footer</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
 
         <Routes>
-          <Route path='/home' element={<Header></Header>}></Route>
-          <Route path='/features' element={<Content></Content>}></Route>
-          <Route path='/pricing' element={<Footer></Footer>}></Route>
+          <Route path='/' element={<Content></Content>}></Route>
+          <Route path='/read' element={<Read></Read>}></Route>
+          <Route path='/create' element={<Create></Create>}></Route>
+          <Route path='/Footer' element={<Footer></Footer>}></Route>
         </Routes>
 
 
