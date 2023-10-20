@@ -13,10 +13,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        {/* add the navbar */}
         <Navbar bg="primary" data-bs-theme="dark">
           <Container>
             <Navbar.Brand href="home">Navbar</Navbar.Brand>
             <Nav className="me-auto">
+              {/* link to each element on the navbar and add the names */}
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/read">Read</Nav.Link>
               <Nav.Link href="/create">Create</Nav.Link>
@@ -25,6 +27,7 @@ function App() {
           </Container>
         </Navbar>
 
+        {/* add the routing path for each element and link to component*/}
         <Routes>
           <Route path='/' element={<Content></Content>}></Route>
           <Route path='/read' element={<Read></Read>}></Route>

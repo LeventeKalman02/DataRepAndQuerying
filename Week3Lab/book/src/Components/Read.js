@@ -12,7 +12,7 @@ function Read(){
         ()=>{
             /* Get the data from the http link */
             axios.get('https://jsonblob.com/api/jsonblob/1161593332966481920')
-            .then(
+            .then(/* callback function */
                 (response)=>{/* get the data response from the http */
                     setData(response.data.books)/* pass the data to setData to display the books array */
                 }
