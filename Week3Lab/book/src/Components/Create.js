@@ -42,9 +42,8 @@ function Create(){
                 value={cover}/* initial value */
                 onChange={(e) => { setCover(e.target.value) }}/>{/* when event changes run setCover */}
             </div>
-
-            {/* submit button */}
-            <div>
+            
+            <div>{/* submit button */}
                 <input type="submit"
                 value="Add Book"></input>
             </div>
