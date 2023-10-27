@@ -2,11 +2,15 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
-//get the results from the query and send it to /name
+//get the results from the get method query in index.html and send it to /name
 app.get('/name', (req,res) =>{
     res.send("Hello "+ req.query.fname+" "+ req.query.sname);
 });
 
+//instead of get this gets from the post form in index.html
+app.post('/name', (req,res) =>{
+    res.send("Hello post");
+});
 
 //listening at local host 4000 for http request
 app.get('/', (req, res) => {
@@ -73,8 +77,6 @@ app.get('/test', (req, res) =>{
     //__dirname gets the current directory that we are in
     res.sendFile(__dirname+'/index.html');
 });
-
-
 
 //listen for requests coming in
 app.listen(port, () => {
