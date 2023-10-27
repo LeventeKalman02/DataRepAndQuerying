@@ -2,6 +2,12 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
+//npm i body-parser
+//config body-parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 //get the results from the get method query in index.html and send it to /name
 app.get('/name', (req,res) =>{
     res.send("Hello "+ req.query.fname+" "+ req.query.sname);
@@ -9,7 +15,7 @@ app.get('/name', (req,res) =>{
 
 //instead of get this gets from the post form in index.html
 app.post('/name', (req,res) =>{
-    res.send("Hello post");
+    res.send("Hello "+req.body.fname+" "+req.body.sname);
 });
 
 //listening at local host 4000 for http request
