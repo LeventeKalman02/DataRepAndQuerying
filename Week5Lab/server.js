@@ -2,6 +2,12 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
+//get the results from the query and send it to /name
+app.get('/name', (req,res) =>{
+    res.send("Hello "+ req.query.fname+" "+ req.query.sname);
+});
+
+
 //listening at local host 4000 for http request
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -66,7 +72,9 @@ app.get('/api/books', (req, res) =>{
 app.get('/test', (req, res) =>{
     //__dirname gets the current directory that we are in
     res.sendFile(__dirname+'/index.html');
-})
+});
+
+
 
 //listen for requests coming in
 app.listen(port, () => {
