@@ -2,41 +2,13 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
-//npm i body-parser
-//config body-parser
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-//get the results from the get method query in index.html and send it to /name
-app.get('/name', (req,res) =>{
-    res.send("Hello "+ req.query.fname+" "+ req.query.sname);
-});
-
-//instead of get this gets from the post form in index.html
-app.post('/name', (req,res) =>{
-    res.send("Hello "+req.body.fname+" "+req.body.sname);
-});
-
 //listening at local host 4000 for http request
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-//the url is localhost:4000/datarep
-app.get('/datarep', (req, res) => {
-    res.send('Welcome to dataRep and Querying!');
-});
-
-//the url is localhost:4000/hello/whatever name you want here
-//the colon identifies the name as a parameter 
-app.get('/hello/:name', (req, res) =>{
-    res.send("Hello " + req.params.name);
-});
-
-//display the data in the array
 app.get('/api/books', (req, res) =>{
-    const data = [
+    const books = [
         {
         "title": "Learn Git in a Month of Lunches",
         "isbn": "1617292419",
@@ -70,18 +42,13 @@ app.get('/api/books', (req, res) =>{
         "authors": ["Simon Holmes"],
         "categories": []
         }
-        ];
+    ];
 
     res.json({
-        myBooks:data,
-        "Message":"Hello from server.js"
-    }); 
-});
-
-//send the index.html file
-app.get('/test', (req, res) =>{
-    //__dirname gets the current directory that we are in
-    res.sendFile(__dirname+'/index.html');
+        myBooks:books,
+        "Message":"Some information",
+        "Status":"Happy"
+    });
 });
 
 //listen for requests coming in
