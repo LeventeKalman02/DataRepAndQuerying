@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {/* add the navbar */}
-        <Navbar bg="primary" data-bs-theme="dark">
+        <Navbar bg="dark" data-bs-theme="dark">
           <Container>
             <Navbar.Brand href="home">Navbar</Navbar.Brand>
             <Nav className="me-auto">

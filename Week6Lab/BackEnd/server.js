@@ -13,12 +13,25 @@ res.header("Access-Control-Allow-Headers",
 next();
 });
 
+//npm i body-parser
+//configure body-parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+//used to parse the body of a http request
+//gets the data from create when details are entered and output to console
+app.post('/api/books', (req, res) =>{
+    console.log(req.body);
+    res.send("Data Received");
+});
 
 //listening at local host 4000 for http request
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+//get the book array and display it
 app.get('/api/books', (req, res) =>{
     const books = [
         {
