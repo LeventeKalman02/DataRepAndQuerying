@@ -11,10 +11,10 @@ function Read(){
     useEffect(
         ()=>{
             /* Get the data from the http link */
-            axios.get('https://jsonblob.com/api/jsonblob/1161593332966481920')
+            axios.get('http://localhost:4000/api/books')
             .then(/* callback function */
                 (response)=>{/* get the data response from the http */
-                    setData(response.data.books)/* pass the data to setData to display the books array */
+                    setData(response.data.myBooks)/* pass the data to setData to display the books array */
                 }
             )
             .catch(/* display the error in the console if there is one */
@@ -22,7 +22,6 @@ function Read(){
                     console.log(error);
                 }
             )
-
         }, []
     );
 
