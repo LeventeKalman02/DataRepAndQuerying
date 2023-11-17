@@ -25,16 +25,35 @@ const mongoose = require('mongoose');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://admin:admin@leventekalman.bwavlir.mongodb.net/?retryWrites=true&w=majority');
+  await mongoose.connect('mongodb+srv://admin:admin@leventekalman.bwavlir.mongodb.net/MYDB?retryWrites=true&w=majority');
 
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
+//adding the book to the cloud database
+const bookSchema = new mongoose.Schema({
+  title:String,
+  cover:String,
+  author:String
+});
+
+//adds ability to add books and query them
+const bookModel = mongoose.model('books', bookSchema);
+
+
 //used to parse the body of a http request
 //gets the data from create when details are entered and output to console
 app.post('/api/books', (req, res) =>{
+  //callback function
     console.log(req.body);
-    res.send("Data Received");
+    //writing data to the database
+    bookModel.create({
+      title: req.body.title,
+      cover: req.body.cover,
+      author: req.body.author
+    })
+    .then(()=>{res.send("Book added successfully")})
+    .catch(()=>(res.send("Error adding book")));
 });
 
 
