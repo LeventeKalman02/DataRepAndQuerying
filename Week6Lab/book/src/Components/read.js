@@ -14,7 +14,7 @@ function Read(){
             axios.get('http://localhost:4000/api/books')
             .then(/* callback function */
                 (response)=>{/* get the data response from the http */
-                    setData(response.data.myBooks)/* pass the data to setData to display the books array */
+                    setData(response.data)/* pass the data to setData to display the books array */
                 }
             )
             .catch(/* display the error in the console if there is one */

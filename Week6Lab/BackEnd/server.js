@@ -63,7 +63,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-//get all the records from database and set it to books variable
+//get all the records from database and set it to books variable asyncronously
 app.get('/api/books', async(req, res) =>{
 
     //search database and bring back all records
