@@ -71,6 +71,13 @@ app.get('/api/books', async(req, res) =>{
     res.json(books);
 });
 
+//get a single record from the database based off the id
+app.get('/api/books/:id', async(req, res) =>{
+  	console.log(req.params.id);    
+    let book = await bookModel.findById(req.params.id);
+    res.json(book);
+});
+
 //listen for requests coming in
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
