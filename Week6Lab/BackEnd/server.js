@@ -19,6 +19,17 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// getting-started.js
+const mongoose = require('mongoose');
+
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb+srv://admin:admin@leventekalman.bwavlir.mongodb.net/?retryWrites=true&w=majority');
+
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
+
 //used to parse the body of a http request
 //gets the data from create when details are entered and output to console
 app.post('/api/books', (req, res) =>{
