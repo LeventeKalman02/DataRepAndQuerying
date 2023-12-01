@@ -23,7 +23,10 @@ function BookItem(props){
                         e.preventDefault();
 
                         axios.delete('http://localhost:4000/api/books/'+props.myBook._id)
-                        .then()
+                        .then((res)=>{
+                            //reload the page after deleting the book
+                            let reload = props.Reload();
+                        })
                         .catch();
                     }
                 }>Delete</Button>

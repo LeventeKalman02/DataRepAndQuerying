@@ -25,9 +25,24 @@ function Read(){
         }, []
     );
 
+    const Reload = (e) => {
+        axios.get('http://localhost:4000/api/books')
+        .then(/* callback function */
+                (response)=>{/* get the data response from the http */
+                    setData(response.data)/* pass the data to setData to display the books array */
+                }
+            )
+        .catch(/* display the error in the console if there is one */
+            (error)=>{
+                console.log(error);
+            }
+        )
+    }
+
     return(
         <div>
-            <Books myBooks = {data}></Books>
+            <Books myBooks = {data} ReloadData = {Reload}></Books>
+
         </div>
     );
 }
