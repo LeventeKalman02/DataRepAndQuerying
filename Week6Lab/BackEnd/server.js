@@ -37,6 +37,16 @@ const bookSchema = new mongoose.Schema({
   author:String
 });
 
+//delete data from db based on id
+app.delete('/api/books/:id', async(req, res) =>{
+  console.log("Delete: "+req.params.id);
+  bookModel.findByIdAndDelete(req.params.id);
+});
+
+app.put('/api/books/:id', async(req, res) =>{
+  console.log("Update: "+req.params.id);
+});
+
 //adds ability to add books and query them
 const bookModel = mongoose.model('books', bookSchema);
 
