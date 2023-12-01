@@ -26,7 +26,7 @@ function BookItem(props){
                         .then()
                         .catch();
                     }
-                }></Button>
+                }>Delete</Button>
             </Card>
         </div>
     );

@@ -40,11 +40,16 @@ const bookSchema = new mongoose.Schema({
 //delete data from db based on id
 app.delete('/api/books/:id', async(req, res) =>{
   console.log("Delete: "+req.params.id);
-  bookModel.findByIdAndDelete(req.params.id);
+  let book = bookModel.findByIdAndDelete(req.params.id);
+  res.send(book);
 });
 
+//edit data in the database based off of id
 app.put('/api/books/:id', async(req, res) =>{
   console.log("Update: "+req.params.id);
+
+  let book = await bookModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
+  res.send(book);
 });
 
 //adds ability to add books and query them
