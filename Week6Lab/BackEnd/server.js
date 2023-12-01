@@ -40,7 +40,6 @@ const bookSchema = new mongoose.Schema({
 //adds ability to add books and query them
 const bookModel = mongoose.model('books', bookSchema);
 
-
 //used to parse the body of a http request
 //gets the data from create when details are entered and output to console
 app.post('/api/books', (req, res) =>{
@@ -55,8 +54,6 @@ app.post('/api/books', (req, res) =>{
     .then(()=>{res.send("Book added successfully")})
     .catch(()=>(res.send("Error adding book")));
 });
-
-
 
 //listening at local host 4000 for http request
 app.get('/', (req, res) => {
