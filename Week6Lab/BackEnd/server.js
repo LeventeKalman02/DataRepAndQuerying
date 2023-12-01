@@ -38,10 +38,13 @@ const bookSchema = new mongoose.Schema({
   author:String
 });
 
+//adds ability to add books and query them
+const bookModel = mongoose.model('books', bookSchema);
+
 //delete data from db based on id
 app.delete('/api/books/:id', async(req, res) =>{
   console.log("Delete: "+req.params.id);
-  
+
   let book = bookModel.findByIdAndDelete(req.params.id);
   res.send(book);
 });
@@ -53,9 +56,6 @@ app.put('/api/books/:id', async(req, res) =>{
   let book = await bookModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
   res.send(book);
 });
-
-//adds ability to add books and query them
-const bookModel = mongoose.model('books', bookSchema);
 
 //used to parse the body of a http request
 //gets the data from create when details are entered and output to console
