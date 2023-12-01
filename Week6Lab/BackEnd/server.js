@@ -19,6 +19,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 // getting-started.js
 const mongoose = require('mongoose');
 
@@ -27,7 +28,7 @@ main().catch(err => console.log(err));
 async function main() {
   await mongoose.connect('mongodb+srv://admin:admin@leventekalman.bwavlir.mongodb.net/MYDB?retryWrites=true&w=majority');
 
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test'); if your database has auth enabled
 }
 
 //adding the book to the cloud database
@@ -40,6 +41,7 @@ const bookSchema = new mongoose.Schema({
 //delete data from db based on id
 app.delete('/api/books/:id', async(req, res) =>{
   console.log("Delete: "+req.params.id);
+  
   let book = bookModel.findByIdAndDelete(req.params.id);
   res.send(book);
 });

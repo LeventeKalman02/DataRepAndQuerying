@@ -58,14 +58,7 @@ export default function Edit() {
                         onChange={(e) => { setTitle(e.target.value) }}
                     />
                 </div>
-                <div className="form-group">
-                    <label>Edit Book Cover: </label>
-                    <input type="text"
-                        className="form-control"
-                        value={cover}
-                        onChange={(e) => { setCover(e.target.value) }}
-                    />
-                </div>
+                
                 <div className="form-group">
                     <label>Edit Book Author: </label>
                     <input type="text"
@@ -74,6 +67,16 @@ export default function Edit() {
                         onChange={(e) => { setAuthor(e.target.value) }}
                     />
                 </div>
+
+                <div className="form-group">
+                    <label>Edit Book Cover: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={cover}
+                        onChange={(e) => { setCover(e.target.value) }}
+                    />
+                </div>
+                
                 <div>
                     <input type="submit"
                     value="Edit Book">
