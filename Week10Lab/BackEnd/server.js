@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../book/build')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
+
 //add cors to the server
 const cors = require('cors');
 app.use(cors());
@@ -50,7 +54,7 @@ app.delete('/api/books/:id', async(req, res) =>{
 });
 
 //edit data in the database based off of id
-app.put('/api/books/:id', async(req, res) =>{
+app.put('/api/book/:id', async(req, res) =>{
   console.log("Update: "+req.params.id);
 
   let book = await bookModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
@@ -59,7 +63,7 @@ app.put('/api/books/:id', async(req, res) =>{
 
 //used to parse the body of a http request
 //gets the data from create when details are entered and output to console
-app.post('/api/books', (req, res) =>{
+app.post('/api/book', (req, res) =>{
   //callback function
     console.log(req.body);
     //writing data to the database
@@ -97,6 +101,10 @@ app.get('/api/book/:identifier',async (req,res)=>{
   let book = await bookModel.findById(req.params.identifier);
   res.send(book);
 })
+
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../book/build/index.html'));
+});
 
 //listen for requests coming in
 app.listen(port, () => {
