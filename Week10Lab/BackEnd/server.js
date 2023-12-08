@@ -50,7 +50,7 @@ const bookModel = mongoose.model('books', bookSchema);
 app.delete('/api/books/:id', async(req, res) =>{
   console.log("Delete: "+req.params.id);
 
-  let book = bookModel.findByIdAndDelete(req.params.id);
+  let book = await bookModel.findByIdAndDelete(req.params.id);
   res.send(book);
 });
 
@@ -64,7 +64,7 @@ app.put('/api/book/:id', async(req, res) =>{
 
 //used to parse the body of a http request
 //gets the data from create when details are entered and output to console
-app.post('/api/book', (req, res) =>{
+app.post('/api/books', (req, res) =>{
   //callback function
     console.log(req.body);
     //writing data to the database
