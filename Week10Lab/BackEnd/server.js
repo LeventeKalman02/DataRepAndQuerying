@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
+//setting the path of the build to the server
 const path = require('path');
 app.use(express.static(path.join(__dirname, '../book/build')));
 app.use('/static', express.static(path.join(__dirname, 'build//static')));
@@ -102,6 +103,7 @@ app.get('/api/book/:identifier',async (req,res)=>{
   res.send(book);
 })
 
+//adds the local build to the server so the build now runs on localhost:4000
 app.get('*', (req,res) =>{
   res.sendFile(path.join(__dirname+'/../book/build/index.html'));
 });
